@@ -16,7 +16,7 @@ mkdir -p /var/www/typecho
 cd /var/www/typecho
 
 echo "⬇️ 安装 Typecho 最新版和一部分美化中..."
-wget https://github.com/sdd-tes/typecho-lxc/releases/download/typecho/typecho.zip
+wget -O typecho.zip https://github.com/typecho/typecho/releases/latest/download/typecho.zip
 unzip typecho.zip
 chown -R www-data:www-data /var/www/typecho
 chown -R www-data:www-data /var/www/typecho
