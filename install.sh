@@ -29,7 +29,7 @@ unzip weibo.zip -d /var/www/typecho/usr/themes/
 wget -O farallon.zip https://github.com/jkjoy/typecho-theme-farallon/releases/download/0.6.3/farallon-0.6.3.zip
 unzip farallon.zip -d /var/www/typecho/usr/themes/farallon
 rm farallon.zip
-wget https://github.com/sdd-tes/typecho-lxc/releases/download/them/lighthouse.zip
+wget -O lighthouse.zip https://github.com/sdd-tes/typecho-lxc/releases/download/them/lighthouse.zip
 unzip lighthouse.zip
 chmod -R 755 /var/www/typecho/usr/
 
