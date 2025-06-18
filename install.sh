@@ -27,7 +27,7 @@ mkdir -p /var/www/typecho/usr/themes/
 wget -O weibo.zip https://github.com/PomeloOfficial/Weibo/releases/download/V3.0/Weibo-3.0.zip
 unzip weibo.zip -d /var/www/typecho/usr/themes/
 mv /var/www/typecho/usr/themes/Weibo-3.0 /var/www/typecho/usr/themes/weibo
-rm Weibo-3.0.zip
+rm weibo.zip
 wget -O farallon.zip https://github.com/jkjoy/typecho-theme-farallon/releases/download/0.6.3/farallon-0.6.3.zip
 unzip farallon.zip -d /var/www/typecho/usr/themes/farallon
 rm farallon.zip
