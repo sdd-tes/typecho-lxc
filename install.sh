@@ -16,21 +16,25 @@ mkdir -p /var/www/typecho
 cd /var/www/typecho
 
 echo "⬇️ 安装 Typecho 最新版和一部分美化中..."
-wget -O typecho.zip https://github.com/typecho/typecho/releases/latest/download/typecho.zip
+wget https://github.com/sdd-tes/typecho-lxc/releases/download/typecho/typecho.zip
 unzip typecho.zip
 chown -R www-data:www-data /var/www/typecho
 chown -R www-data:www-data /var/www/typecho
 chmod -R 755 /var/www/typecho
 
 mkdir -p /var/www/typecho/usr/themes/
-
-wget https://github.com/PomeloOfficial/Weibo/releases/download/V3.0/Weibo-3.0.zip
-unzip Weibo-3.0.zip -d /var/www/typecho/usr/themes/
-wget https://cdn.typechx.com/themes/usr/uploads/2025/03/4204659085.zip
-unzip 4204659085.zip -d /var/www/typecho/usr/themes/
-wget https://github.com/jkjoy/typecho-theme-farallon/releases/download/0.6.3/farallon-0.6.3.zip
-unzip farallon-0.6.3.zip -d /var/www/typecho/usr/themes/
-chown -R www-data:www-data /var/www/typecho/usr/
+# Weibo 主题处理
+wget -O weibo.zip https://github.com/PomeloOfficial/Weibo/releases/download/V3.0/Weibo-3.0.zip
+unzip weibo.zip -d /var/www/typecho/usr/themes/
+mv /var/www/typecho/usr/themes/Weibo-3.0 /var/www/typecho/usr/themes/weibo
+rm Weibo-3.0.zip
+wget -O farallon.zip https://github.com/jkjoy/typecho-theme-farallon/releases/download/0.6.3/farallon-0.6.3.zip
+unzip farallon.zip -d /var/www/typecho/usr/themes/farallon
+rm farallon.zip
+wget -O other_theme.zip https://cdn.typechx.com/themes/usr/uploads/2025/03/4204659085.zip
+unzip other_theme.zip -d /tmp/other_theme
+mv /tmp/other_theme/*/模板文件/lighthouse /var/www/typecho/usr/themes/lighthouse
+rm -rf /tmp/other_theme other_theme.zip
 chmod -R 755 /var/www/typecho/usr/
 
 echo "🧩 配置 Nginx 虚拟主机..."
@@ -70,6 +74,7 @@ sed -i 's/^pm.max_spare_servers = .*/pm.max_spare_servers = 2/' /etc/php/7.4/fpm
 echo "🔄 重启服务..."
 systemctl restart php7.4-fpm
 systemctl restart nginx
-IP=$(curl -s https://api.ip.sb/ip)
+IP=$(curl -s https://ipinfo.io/ip || curl -s https://api64.ipify.org || curl -s https://ifconfig.me)
+
 echo "✅ 部署完成！现在你可以通过服务器 IP 访问网站，开始安装 Typecho 了！"
 echo "🌐 示例访问地址：http://$IP"
