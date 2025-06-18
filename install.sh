@@ -31,7 +31,7 @@ unzip farallon.zip -d /var/www/typecho/usr/themes/farallon
 rm farallon.zip
 wget -O other_theme.zip https://cdn.typechx.com/themes/usr/uploads/2025/03/4204659085.zip
 unzip other_theme.zip -d /tmp/other_theme
-mv /tmp/other_theme/*/模板文件/lighthouse /var/www/typecho/usr/themes/lighthouse
+mv /tmp/other_theme/模板文件/lighthouse /var/www/typecho/usr/themes/lighthouse
 chmod -R 755 /var/www/typecho/usr/
 
 echo "🧩 配置 Nginx 虚拟主机..."
