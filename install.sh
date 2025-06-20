@@ -21,16 +21,6 @@ unzip typecho.zip
 chown -R www-data:www-data /var/www/typecho
 chown -R www-data:www-data /var/www/typecho
 chmod -R 755 /var/www/typecho
-
-mkdir -p /var/www/typecho/usr/themes/
-# Weibo 主题处理
-wget -O weibo.zip https://github.com/PomeloOfficial/Weibo/releases/download/V3.0/Weibo-3.0.zip
-unzip weibo.zip -d /var/www/typecho/usr/themes/
-wget -O farallon.zip https://github.com/jkjoy/typecho-theme-farallon/releases/download/0.6.3/farallon-0.6.3.zip
-unzip farallon.zip -d /var/www/typecho/usr/themes/farallon
-rm farallon.zip
-chmod -R 755 /var/www/typecho/usr/
-
 echo "🧩 配置 Nginx 虚拟主机..."
 cat > /etc/nginx/sites-available/typecho <<EOF
 server {
